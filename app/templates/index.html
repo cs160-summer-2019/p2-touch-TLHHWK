@@ -83,8 +83,62 @@
 			</div>
 		</div>
 	</div>
+  
 	<script>
-	  // your solution here
+//Rotate part
+    var myElement_rotate = document.getElementById('rotate-box');
+    var mc_rotate = new Hammer.Manager(myElement_rotate);
+    var rotate = new Hammer.Rotate();
+// we want to detect both the same time
+//pinch.recognizeWith(rotate);
+ mc_rotate.add( rotate);
+mc_rotate.on("rotate", function(ev_rotate) {
+    myElement_rotate.textContent = ev_rotate.type +"gesture detected ";
+});
+//   var myElement_rotate = document.getElementById('rotate-box');
+//   var mc_rotate = new Hammer(myElement_rotate);
+//   mc_rotate.on("rotate", function(ev_rotate) {
+//     myElement_rotate.textContent = ev_rotate.type +" gesture detected";
+//});
+    
+//Pinch part
+var myElement_pinch = document.getElementById('pinch-box');
+    var mc_pinch = new Hammer.Manager(myElement_pinch);
+    var pinch = new Hammer.Pinch();
+// we want to detect both the same time
+// add to the Manager
+mc_pinch.add(pinch);
+mc_pinch.on("pinch", function(ev_pinch) {
+    myElement_pinch.textContent = ev_pinch.type +"gesture detected ";
+});
+
+//Press part
+   var myElement_press = document.getElementById('press-box');
+  var mc_press = new Hammer(myElement_press);
+  mc_press.on("press", function(ev_press) {
+    myElement_press.textContent = ev_press.type +" gesture detected";
+});
+//Pan part
+var myElement_pan = document.getElementById('pan-box');
+var mc_pan = new Hammer(myElement_pan);
+mc_pan.get('pan').set({ direction: Hammer.DIRECTION_ALL });
+mc_pan.on("panleft panright panup pandown", function(ev_pan) {
+    myElement_pan.textContent = ev_pan.type +" gesture detected.";
+});
+    
+    
+//tap part
+var myElement_tap = document.getElementById('tap-box');
+var mc_tap = new Hammer(myElement_tap);
+mc_tap.on("tap press", function(ev_tap) {
+    myElement_tap.textContent = ev_tap.type +" gesture detected";
+});
+//swip part
+  var myElement_swipe = document.getElementById('swipe-box');
+var mc_swipe = new Hammer(myElement_swipe);
+mc_swipe.on("swipe", function(ev_swipe) {
+    myElement_swipe.textContent = ev_swipe.type +" gesture detected";
+});  
   </script>
 </body>
 </html>
