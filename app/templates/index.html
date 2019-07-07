@@ -89,26 +89,17 @@
     var myElement_rotate = document.getElementById('rotate-box');
     var mc_rotate = new Hammer.Manager(myElement_rotate);
     var rotate = new Hammer.Rotate();
-// we want to detect both the same time
-//pinch.recognizeWith(rotate);
- mc_rotate.add( rotate);
-mc_rotate.on("rotate", function(ev_rotate) {
+    mc_rotate.add( rotate);
+    mc_rotate.on("rotate", function(ev_rotate) {
     myElement_rotate.textContent = ev_rotate.type +"gesture detected ";
 });
-//   var myElement_rotate = document.getElementById('rotate-box');
-//   var mc_rotate = new Hammer(myElement_rotate);
-//   mc_rotate.on("rotate", function(ev_rotate) {
-//     myElement_rotate.textContent = ev_rotate.type +" gesture detected";
-//});
     
 //Pinch part
-var myElement_pinch = document.getElementById('pinch-box');
+    var myElement_pinch = document.getElementById('pinch-box');
     var mc_pinch = new Hammer.Manager(myElement_pinch);
     var pinch = new Hammer.Pinch();
-// we want to detect both the same time
-// add to the Manager
-mc_pinch.add(pinch);
-mc_pinch.on("pinch", function(ev_pinch) {
+    mc_pinch.add(pinch);
+    mc_pinch.on("pinch", function(ev_pinch) {
     myElement_pinch.textContent = ev_pinch.type +"gesture detected ";
 });
 
@@ -118,6 +109,7 @@ mc_pinch.on("pinch", function(ev_pinch) {
   mc_press.on("press", function(ev_press) {
     myElement_press.textContent = ev_press.type +" gesture detected";
 });
+    
 //Pan part
 var myElement_pan = document.getElementById('pan-box');
 var mc_pan = new Hammer(myElement_pan);
@@ -133,6 +125,7 @@ var mc_tap = new Hammer(myElement_tap);
 mc_tap.on("tap press", function(ev_tap) {
     myElement_tap.textContent = ev_tap.type +" gesture detected";
 });
+    
 //swip part
   var myElement_swipe = document.getElementById('swipe-box');
 var mc_swipe = new Hammer(myElement_swipe);
